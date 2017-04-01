@@ -3,7 +3,9 @@
 import bluetooth
 import os.path
 
+
 users_path = 'users.txt'
+
 
 # Get the current list of users
 users = []
@@ -49,15 +51,10 @@ else:
     if maybe_name != '':
         name = maybe_name
 
-    with open("users.txt", "w") as users_file:
+    users.append( (addr, name) )
+
+    with open(users_path, "w") as users_file:
         users_string = "\n".join(["{} {}".format(addr, name) for addr, name in users])
         users_file.write( users_string )
     print("Successfully added '{}'".format(name))
-
-
-
-
-
-
-
 
