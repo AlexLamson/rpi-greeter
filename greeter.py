@@ -39,11 +39,11 @@ while True:
         is_visible = check_visible(addr)
         was_visible = visible_users[i]
 
-        if is_visible and not was_visible:
+        if is_visible and not was_visible and check_visible(addr):
             print("Welcome back {}!".format(name))
             os.system('say "Welcome back {}!"'.format(name))
 
-        elif not is_visible and was_visible:
+        elif not is_visible and was_visible and not check_visible(addr):
             print("Goodbye {}!".format(name))
             os.system('say "Goodbye {}!"'.format(name))
 
