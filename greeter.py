@@ -49,3 +49,6 @@ while True:
 
         visible_users[i] = is_visible
 
+        # prevent error where multiple users receive one user's state change
+        time.sleep(0.1)
+
