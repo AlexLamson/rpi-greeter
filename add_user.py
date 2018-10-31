@@ -19,7 +19,7 @@ if os.path.isfile(users_path):
 
 # Look for discoverable devices
 print("Scanning for nearby bluetooth devices...")
-nearby_devices = bluetooth.discover_devices(lookup_names = True)
+nearby_devices = bluetooth.discover_devices(lookup_names=True)
 
 if len(nearby_devices) == 0:
     print("No bluetooth devices found. Is your device in discoverable mode?")
