@@ -34,21 +34,20 @@ print("States initialized")
 # If a user changes state, greet them / wish them goodbye
 while True:
     time.sleep(sleep_time)
-    
+
     for i, (addr, name) in enumerate(users):
         is_visible = check_visible(addr)
         was_visible = visible_users[i]
 
         if is_visible and not was_visible and check_visible(addr):
+            visible_users[i] = is_visible
             print("Welcome back {}!".format(name))
             os.system('say "Welcome back {}!"'.format(name))
 
         elif not is_visible and was_visible and not check_visible(addr):
+            visible_users[i] = is_visible
             print("Goodbye {}!".format(name))
             os.system('say "Goodbye {}!"'.format(name))
 
-        visible_users[i] = is_visible
-
         # prevent error where multiple users receive one user's state change
         time.sleep(0.1)
-
